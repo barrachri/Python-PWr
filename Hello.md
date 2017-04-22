@@ -1,1 +1,1 @@
-# Michal Janik
+# Micha³ Janik
