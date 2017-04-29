@@ -71,7 +71,66 @@ print(type(t))
 number = 500
 print(str(number)[0])
 '''
+'''
 eur = 4.3
 euro_in_my_pocket = 100
 pln_in_my_pocket = euro_in_my_pocket * eur
 print(pln_in_my_pocket)
+'''
+
+'''
+empty_list = []
+print(type(empty_list))
+
+my_first_list = [1,2,3,4,5]
+a_mixed_list = [1,2,'Ciao']
+new_list = my_first_list + a_mixed_list
+print(new_list)
+
+print(my_first_list[-1])
+
+print(my_first_list[::-1]) #reversing list
+
+countries = ['Poland', 'Italy', 'USA', 'Germany']
+for country in countries:
+	print(country)
+
+country = 'Poland'
+for l in enumerate(country):
+	print(l)
+
+for i, v in enumerate(country):
+	print(i, v)
+
+for l in range(len(country)):
+	print(l, country[l])
+'''
+
+'''
+initial = ['left']
+position = initial
+initial = ['right']
+print(position)
+
+initial = ['left']
+position = initial
+initial[0] = 'right'
+print(position)
+'''
+
+dicty = {'key': 'value', 'key1': 'value1'}
+print(dicty['key'])
+print(dicty)
+
+dicty[1] = 'ValueFrom1'
+dicty['ssss'] = 'valueFromssss'
+
+print(dicty)
+
+for k in dicty:
+	print('Key:', k, 'Value:', dicty[k])
+
+#dir(dicty) shows a list of available methods
+
+for k, v in dicty.items():
+	print('Key:', k, 'Value:', v)
