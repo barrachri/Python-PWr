@@ -6,3 +6,4 @@
 # Slides
 
 * [22/04/2017 - Day 1](https://drive.google.com/open?id=0BxcsLaaVrpXOVGg3ZXItZTZocm8)
+* [29/04/2017 - Day 2](https://drive.google.com/open?id=0BxcsLaaVrpXOOEFTcmVWZThrVTQ)

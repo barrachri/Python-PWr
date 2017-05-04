@@ -1,1 +1,1 @@
-print("Hello Poland")
+print("You have a terminal in your window")
