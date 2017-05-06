@@ -63,6 +63,8 @@ def api_call(dict_object, id_inside_db):
             name = f"{s_first_name} {s_last_name}"
             students.append({"name" : name, "id" : student_id})
         return [first_name, last_name, status, students]
+    else:
+        print("Your db sucks, no id")
 
 print(api_call(db_university, "2BEC"))
 print(api_call(db_university, "8ACF"))
