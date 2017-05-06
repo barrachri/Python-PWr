@@ -4,7 +4,7 @@ def api_call(a_list):
     '''This function takes a list of values and then it returns a integer 
     with the number of numbers in that list'''
     counter = 0
-    for something in input_list:
+    for something in a_list:
         if type(something) == int:
             counter = counter + 1
 
