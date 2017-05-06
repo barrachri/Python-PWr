@@ -49,9 +49,12 @@ def api_call(dict_object, id_inside_db):
     '''
     out = [dict_object[id_inside_db]["first_name"], dict_object[id_inside_db]["last_name"], dict_object[id_inside_db]["status"]]
     if dict_object[id_inside_db]["role"] == "Professor":
-        out.append(dict_object[id_inside_db]["students"])
-
+        students = []
+        for s in dict_object[id_inside_db]["students"]:
+            students.append([dict_object[s]["first_name"], dict_object[s]["last_name"], dict_object[s]["status"]])
+            out.append(students)
     return out
 
 
 assert api_call(db_university, "2BEC") == ["Wioletta", "", "Inactive"]
+print(api_call(db_university, "4AEF"))
