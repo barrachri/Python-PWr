@@ -1,10 +1,10 @@
 input_list = [1,2,3,None,5]
 
 def api_call(a_list):
-    """Liczba liczba"""
+    """Liczba liczb"""
     counter = 0
-    for number in input_list:
-        if type(number) == int:
+    for number in a_list:
+        if ((type(number) is int) or (type(number) is float)):
             counter = counter +1
     return(counter)
 
