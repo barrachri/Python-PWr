@@ -54,8 +54,8 @@ def api_call(dict_object, id_inside_db):
         output.append(dict_object[id_inside_db]["status"])
         if dict_object[id_inside_db]['role'] == 'Professor':
             studens_list=[]
-            for id in dict_object[id_inside_db]["students"]:
-                studens_list.append({"id":id, "name":dict_object[id]["first_name"]+' '+dict_object[id]["last_name"]})
+            for student_id in dict_object[id_inside_db]["students"]:
+                studens_list.append({"id":student_id, "name":dict_object[student_id]["first_name"]+' '+dict_object[student_id]["last_name"]})
             output.append(studens_list)
     return output
 print(api_call(db_university,"4AEF"))
