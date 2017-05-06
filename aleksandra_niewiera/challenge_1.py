@@ -4,6 +4,7 @@ input_list = [1,2,3, None, 5]
 def api_call(a_list):
     '''This function takes a list of values and then it returns a integer
     with the number of numbers in that list'''
+    a_list=a_list
     counter=0
     for i in a_list:
         if type(i)==int:
