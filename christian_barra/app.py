@@ -296,7 +296,8 @@ def index():
 @app.route('/id/<person_id>')
 def api_id(person_id):
 
-    if person_id in db:
+    if person_id in db
+        
         if db[person_id]['role'] == 'Student':
             student = db[person_id]
             first_name = student['first_name']
