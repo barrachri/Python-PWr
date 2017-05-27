@@ -1,0 +1,380 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+
+\mode<presentation> {
+
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+%\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+\usefonttheme{structurebold}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{alltt}
+\usepackage{sty/pythonhighlight}
+\usepackage{listings}
+\usepackage{dirtree}
+
+\newcommand{\bashcmd}[1]{\vspace{1mm}\hspace{5mm}\texttt{#1\\}\vspace{1mm}}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[Flask]{Flask} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+\author{Marcin Jenczmyk} % Your name
+\institute[Clearcode] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+Clearcode \\ % Your institution for the title page
+\medskip
+\href{mailto:m.jenczmyk@clearcode.cc}{\nolinkurl{m.jenczmyk@clearcode.cc}} % Your email address
+}
+\date{27/05/2017} % Date, can be changed to a custom date
+
+\begin{document}
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+\end{frame}
+
+\begin{frame}
+\frametitle{Overview} % Table of contents slide, comment this block out to remove it
+\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+\section{requirements.txt}
+
+\begin{frame}
+  \frametitle{requirements.txt}
+
+  Requirements file is a plaintext file listing Python \texttt{pip} dependencies for a project.
+
+  \vspace{3mm}
+
+  \pause To install dependencies from \texttt{requirements.txt} into current Python envrinoment run\\
+  \bashcmd{doctor@TARDIS:$\sim$\$ pip install -r requirements.txt}
+
+  \vspace{3mm}
+
+  \pause To save list of Python packages installled in current Python envrinoment into \texttt{requirements.txt} file run\\
+  \bashcmd{doctor@TARDIS:$\sim$\$ pip freeze > requirements.txt}
+\end{frame}
+
+\begin{frame}
+  \frametitle{requirements.txt}
+
+  \begin{figure}
+    \fbox{\begin{minipage}{\textwidth}
+      \begin{alltt}
+        appdirs==1.4.3\\
+        click==6.7\\
+        Flask==0.12.2\\
+        itsdangerous==0.24\\
+        Jinja2==2.9.6\\
+        MarkupSafe==1.0\\
+        packaging==16.8\\
+        pyparsing==2.2.0\\
+        six==1.10.0\\
+        Werkzeug==0.12.2
+      \end{alltt}
+    \end{minipage}}
+    \caption{A sample requirements file.}
+  \end{figure}
+\end{frame}
+
+\section{Hello there!}
+
+\begin{frame}
+  \frametitle{Hello there!}
+
+  Flask is a microframework for Python for a web development. \pause Some useful resources:
+  \begin{itemize}
+    \item \url{http://flask.pocoo.org/}
+    \item \url{http://flask.pocoo.org/docs/latest/quickstart/}
+    \item \url{http://flask.pocoo.org/extensions/}
+    \item \url{https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world}
+  \end{itemize}
+
+  \vspace{3mm}
+
+  \pause \bashcmd{doctor@TARDIS:$\sim$\$ pip install Flask}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Hello there!}
+
+  \begin{figure}
+    \inputpython{examples/hello_v1/hello.py}{1}{10}
+    \caption{A simple Flask app (see \texttt{hello\_v1/hello.py}).}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Hello there!}
+
+  To run a Flask application run \\
+  \bashcmd{doctor@TARDIS:$\sim$\$ python hello.py}
+
+  \pause
+
+  \begin{block}{Debug mode}
+    It's easier to debug application behaviour in debug mode - to do this add \pyth{app.debug \= True}
+    in your Python code or export \texttt{FLASK\_DEBUG} envrinoment variable \\
+    \bashcmd{doctor@TARDIS:$\sim$\$ export FLASK\_DEBUG=1}
+  \end{block}
+
+  \pause
+
+  \begin{block}{Warning}
+    Debug mode should be never used on a production!
+  \end{block}
+\end{frame}
+
+\section{HTTP methods}
+
+\begin{frame}
+  \frametitle{HTTP methods}
+
+  To use a GET HTTP method put a \pyth{<type:arg>} in a view URL, where \pyth{type} can be either \texttt{string},
+  \texttt{int}, \texttt{float}, \texttt{path}, \texttt{any} (any of listed before) or \texttt{uuid}.
+
+  \vspace{3mm}
+
+  \begin{figure}
+    \inputpython{examples/hello_v2/hello.py}{7}{15}
+    \caption{\centering{Sample view with GET parameter (see \texttt{hello\_v2/hello.py}).}}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{HTTP methods}
+
+  To use POST HTTP method one has to enable it in a view decorator.
+
+  \vspace{3mm}
+
+  \begin{figure}
+    \inputpython{examples/hello_v2/hello.py}{18}{26}
+    \caption{\centering{Sample view handling POST parameter (see \texttt{hello\_v2/hello.py}).}}
+  \end{figure}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{HTTP methods}
+
+  \begin{block}{Remark}
+    One can get URL to view by its name using \pyth{url_for} function, ex. one can get login view URL by calling
+    \pyth{url_for('login')}.
+  \end{block}
+\end{frame}
+
+\section{Templates}
+
+\begin{frame}
+  \frametitle{Jinja2}
+
+  Rendering entire HTML markup for a webpage by writing strings to be returned by views would be tiresome - there
+  is a \href{http://jinja.pocoo.org/}{Jinja2} engine built in Flask to enable rendering HTML templates.
+
+  \vspace{3mm} \pause
+
+  One can render template using \pyth{render_template} function, \textbf{Flask will be looking for templates
+  in the \texttt{templates} directory, located at the same path as Python application file!}
+
+  \dirtree{%
+    .1 /.
+    .2 hello.py.
+    .2 templates.
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Jinja2}
+  \begin{figure}
+    \inputpython{examples/hello_v3/hello.py}{6}{18}
+    \caption{\centering{Sample view rendering Jinja template (see \texttt{hello\_v3/hello.py}).}}
+  \end{figure}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Jinja2}
+
+  \begin{figure}
+    \lstinputlisting[language=HTML, frame=single]{examples/hello_v3/templates/index.html}
+    \caption{\centering{Jinja template for hello\_3 example (see \texttt{hello\_v3/templates/index.html}).}}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Jinja2}
+  \begin{figure}
+    \lstinputlisting[language=HTML, frame=single]{examples/hello_v4/templates/base.html}
+    \caption{\centering{
+      Jinja templates can be extended (see \texttt{index.html} and \texttt{base.html}
+      - on next slide - in \texttt{hello\_v4/templates/}).
+    }}
+
+  \end{figure}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Jinja2}
+
+  \lstinputlisting[language=HTML, frame=single]{examples/hello_v4/templates/index.html}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Jinja2}
+  \begin{figure}
+    \lstinputlisting[language=HTML, frame=single, firstline=1, lastline=7]{examples/loops.html}
+    \lstinputlisting[language=HTML, frame=single, firstline=9, lastline=11]{examples/loops.html}
+    \caption{\centering{Jinja templates allow for using \texttt{for} loops and \texttt{if} commands.}}
+  \end{figure}
+
+
+\end{frame}
+
+\section{Static files}
+
+\begin{frame}
+  \frametitle{Static files}
+
+  Dynamic web applications also need static files. They are going to be searched for in \texttt{static} directory
+  (but on production envrinoment server should handle them); to generate URLs for static files, use the special
+  \texttt{static} endpoint name.
+
+  \vspace{3mm} \pause
+
+  To generate URL for a static file use \pyth{url_for} function, ex. \pyth{url_for('static', filename='style.css')}.
+
+  \dirtree{%
+    .1 /.
+    .2 hello.py.
+    .2 templates.
+    .2 static.
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Static files}
+
+  \begin{figure}
+    \inputpython{examples/hello_v5/hello.py}{1}{9}
+    \caption{\centering{Python code for \texttt{hello\_v5} example app.}}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Static files}
+
+  \begin{figure}
+    \lstinputlisting[language=HTML, frame=single, firstline=1, lastline=8]{examples/hello_v5/templates/index.html}
+    \caption{\centering{Jinja template rendering static content (see \texttt{hello\_v5/templates/index.html}, continuation on next slide).}}
+  \end{figure}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Static files}
+
+  \begin{figure}
+    \lstinputlisting[language=HTML, frame=single, firstline=10, lastline=14]{examples/hello_v5/templates/index.html}
+    \caption{\centering{Jinja template rendering static content, continuation (see \texttt{hello\_v5/templates/index.html}).}}
+  \end{figure}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{References}
+\footnotesize{
+\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
+  \bibitem[Armin, 2017]{p1} Armin Ronacher (2017)
+  \newblock \url{http://flask.pocoo.org/}
+  \bibitem[Armin, 2008]{p2} Armin Ronacher (2008)
+  \newblock \url{http://jinja.pocoo.org/docs/2.9/}
+
+\end{thebibliography}
+}
+\end{frame}
+
+\end{document}

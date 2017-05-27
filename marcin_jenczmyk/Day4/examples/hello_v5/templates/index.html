@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block css %}
+  <link rel="stylesheet" type="text/css"
+    href="{{ url_for(
+      'static', filename='style.css')
+  }}">
+{% endblock %}
+
+{% block body %}
+  <img class="meme"
+    src="{{ url_for('static', filename='hello.jpg')
+  }}">
+{% endblock %}
