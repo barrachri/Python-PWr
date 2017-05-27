@@ -1,7 +1,7 @@
 ###############################################################
 # STEP #1
 ###############################################################
-# I've take this code from here: http://flask.pocoo.org/docs/0.12/quickstart/#a-minimal-application
+# I've taken this code from here: http://flask.pocoo.org/docs/0.12/quickstart/#a-minimal-application
 ###############################################################
 # app.py #
 ###############################################################
@@ -58,7 +58,7 @@ if __name__ == '__main__':
 ###############################################################
 # STEP #4
 ###############################################################
-# I took this code from here: https://github.com/barrachri/Python-PWr/blob/master/christian_barra/Day3.ipynb
+# I've taken this code from here: https://github.com/barrachri/Python-PWr/blob/master/christian_barra/Day3.ipynb
 ###############################################################
 # Day3.ipynb #
 ###############################################################
@@ -320,7 +320,7 @@ def api_id(person_id):
                 students.append({"name": name, "id" : student_id})
                 
             return "{}, {}, {}, {}".format(first_name, last_name, status, students)
-            
+
     return "Your db sucks there's no id"
 
 if __name__ == '__main__':
